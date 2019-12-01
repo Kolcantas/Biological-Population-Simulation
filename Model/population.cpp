@@ -18,5 +18,5 @@ Population::~Population()
 void Population::addIndividual()
 {
     listOfIndividuals.push_back(new Species(coordOfLastIndividual));
-    coordOfLastIndividual.setX(coordOfLastIndividual.x() + 10);
+    coordOfLastIndividual.setX(coordOfLastIndividual.x() + 50);
 }

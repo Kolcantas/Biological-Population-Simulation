@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <iostream>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QDialog(parent)
@@ -40,6 +42,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateView()
 {
+    ellipses = graphicsItemsInterface->getEllipses();
+    for(QList<QGraphicsEllipseItem*>::iterator it = ellipses->begin(); it != ellipses->end(); it++)
+    {
+        scene->addEllipse((*it)->rect());
+    }
+
     ellipse->moveBy(50,50);
 }
 
@@ -47,5 +55,10 @@ void MainWindow::showSize(QGraphicsScene& scene) const
 {
     std::cout << "WIDTH: " << scene.width() << "\t";
     std::cout << "HEIGHT " << scene.height() << "\t" << std::endl;
+}
+
+void MainWindow::attachGraphicsItemInterface(I_GraphicsItems *interface)
+{
+    graphicsItemsInterface = interface;
 }
 

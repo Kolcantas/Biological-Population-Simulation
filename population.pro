@@ -19,6 +19,7 @@ SOURCES += \
     Control/controller.cpp \
     Model/population.cpp \
     Model/species.cpp \
+    View/individualsadapter.cpp \
     View/mainwindow.cpp \
     main.cpp
 
@@ -28,6 +29,8 @@ HEADERS += \
     Model/I_Individuals.h \
     Model/population.h \
     Model/species.h \
+    View/I_GraphicsItems.h \
+    View/individualsadapter.h \
     View/mainwindow.h
 
 FORMS += \

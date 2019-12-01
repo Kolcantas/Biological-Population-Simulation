@@ -6,6 +6,7 @@
 
 #include "population.h"
 #include "I_Individuals.h"
+#include "individualsadapter.h"
 
 
 class Controller : public QObject
@@ -25,8 +26,10 @@ private:
     void setup(int numberOfInitialIndividuals = 5);
 
     QTimer* refreshTimer;
-    MainWindow* mainWindow = nullptr;
     Population* population = nullptr;
+    IndividualsAdapter* individualsAdapter = nullptr;
+    MainWindow* mainWindow = nullptr;
+
     unsigned long int iteration = 0;
 
 };

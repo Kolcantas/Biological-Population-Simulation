@@ -6,7 +6,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 
-#include <iostream>
+#include "I_GraphicsItems.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,14 +22,17 @@ public:
     ~MainWindow();
 
     void updateView();
+    void showSize(QGraphicsScene& scene) const;
+    void attachGraphicsItemInterface(I_GraphicsItems* interface);
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene* scene;
     QGraphicsView* view;
-    QGraphicsEllipseItem* ellipse;
+    I_GraphicsItems* graphicsItemsInterface;
+    QList<QGraphicsEllipseItem*>* ellipses;
 
-    void showSize(QGraphicsScene& scene) const;
+    QGraphicsEllipseItem* ellipse;
 };
 
 #endif // MAINWINDOW_H

@@ -1,17 +1,21 @@
 #include "controller.h"
+#include <iostream>
 
 Controller::Controller()
 {
-   mainWindow = new MainWindow;
-   population = new Population;
+    mainWindow = new MainWindow;
+    population = new Population;
+    individualsAdapter = new IndividualsAdapter(*population);
+    mainWindow->attachGraphicsItemInterface(individualsAdapter);
 
-   setup();
+    setup();
 }
 
 Controller::~Controller()
 {
     delete mainWindow;
     delete population;
+    delete individualsAdapter;
 }
 
 void Controller::setup(int numberOfInitialIndividuals)
